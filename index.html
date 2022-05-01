@@ -492,17 +492,19 @@
     </section>
     <!-- Blog Section End -->
     <!-- Contact Section Start -->
-    <section id="contact" class="pt-36">
+    <section id="contact" class="pt-36 mb-12">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="w-full px-4 mb-10">
             <h6>want to have a chat? here's my</h6>
             <h4 class="uppercase text-3xl">Contact</h4>
           </div>
-          <div class="w-full lg:w-2/3">
+          <div class="w-full">
             <form>
               <div class="w-full px-4 mb-8">
-                <label for="name" class="text-base font-bold text-primary"
+                <label
+                  for="name"
+                  class="text-base font-bold text-primary uppercase"
                   >Name</label
                 >
                 <input
@@ -512,7 +514,21 @@
                 />
               </div>
               <div class="w-full px-4 mb-8">
-                <label for="email" class="text-base font-bold text-primary"
+                <label
+                  for="subject"
+                  class="text-base font-bold text-primary uppercase"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+                />
+              </div>
+              <div class="w-full px-4 mb-8">
+                <label
+                  for="email"
+                  class="text-base font-bold text-primary uppercase"
                   >Email</label
                 >
                 <input
@@ -522,7 +538,9 @@
                 />
               </div>
               <div class="w-full px-4 mb-8">
-                <label for="message" class="text-base font-bold text-primary"
+                <label
+                  for="message"
+                  class="text-base font-bold text-primary uppercase"
                   >Message</label
                 >
                 <textarea
@@ -544,6 +562,17 @@
       </div>
     </section>
     <!-- Contact Section End -->
+    <!-- Footer Section Start -->
+    <footer class="bg-white">
+      <div class="container">
+        <div class="flex flex-wrap">
+          <div class="w-full px-4 py-4 flex justify-center items-center">
+            <h1 class="font-medium">© Harry Ricardo 2022</h1>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer Section End -->
 
     <script src="dist/js/script.js"></script>
   </body>
