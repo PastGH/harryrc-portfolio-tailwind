@@ -1,3 +1,8 @@
+//Alert
+alert(
+  "This Portfolio is still on update, any opinions/feedback is appreciated!"
+);
+
 // Hamburger
 const hamburger = document.querySelector("#hamburger");
 const navMenu = document.querySelector("#nav-menu");
