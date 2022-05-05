@@ -6,47 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Harry | Student/Programmer</title>
     <link href="dist/output.css" rel="stylesheet" />
+    <script>
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
-  <body class="tracking-wider bg-gray-100">
+  <body class="bg-gray-100 tracking-wider dark:bg-gray-700">
     <!-- Navbar Section Start -->
     <header
-      class="bg-transparent absolute top-0 left-0 w-full flex items-center z-50"
+      class="absolute top-0 left-0 z-50 flex w-full items-center bg-transparent"
     >
       <div class="container">
-        <div class="flex items-center justify-between relative">
+        <div class="relative flex items-center justify-between">
           <div class="px-4">
             <a
               href="#home"
-              class="font-bold text-lg text-primary block py-6 hover:text-blue-600 transition duration-300"
+              class="block py-6 text-lg font-bold text-primary transition duration-300 hover:text-dark dark:text-dark dark:hover:text-primary"
               >Harry</a
             >
           </div>
           <div class="flex items-center px-4">
             <button
+              id="theme-toggle"
+              type="button"
+              class="text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-10 lg:mt-3 lg:mr-5 transition duration-300"
+            >
+              <svg
+                id="theme-toggle-dark-icon"
+                class="w-5 h-5 hidden"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                ></path>
+              </svg>
+              <svg
+                id="theme-toggle-light-icon"
+                class="w-5 h-5 hidden"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+            <button
               id="hamburger"
               name="hamburger"
               type="button"
-              class="absolute block right-4 lg:hidden"
+              class="absolute right-4 block lg:hidden"
             >
               <span
-                class="hamburger-line transition duration-300 ease-in-out origin-top-left"
+                class="hamburger-line origin-top-left transition duration-300 ease-in-out"
               ></span>
               <span
                 class="hamburger-line transition duration-300 ease-in-out"
               ></span>
               <span
-                class="hamburger-line transition duration-300 ease-in-out origin-bottom-left"
+                class="hamburger-line origin-bottom-left transition duration-300 ease-in-out"
               ></span>
             </button>
             <nav
               id="nav-menu"
-              class="mt-2 hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[270px] w-full right-4 top-full lg:static lg:block lg:bg-transparent lg:max-w-full lg:rounded-none lg:shadow-none"
+              class="absolute right-4 top-full mt-2 hidden w-full max-w-[270px] rounded-lg bg-white py-5 shadow-lg lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none dark:bg-gray-700 dark:lg:bg-transparent dark:shadow-white/60 lg:dark:shadow-none"
             >
               <ul class="block lg:flex">
                 <li class="group">
                   <a
                     href="#home"
-                    class="py-2 px-2 mx-8 flex group-hover:text-primary rounded-md group-hover:shadow-lg transition duration-300"
+                    class="mx-8 flex rounded-md py-2 px-2 transition duration-300 group-hover:text-primary group-hover:shadow-lg dark:text-white dark:group-hover:text-dark dark:group-hover:shadow-white/60"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +109,7 @@
                 <li class="group">
                   <a
                     href="#about"
-                    class="py-2 px-2 mx-8 flex group-hover:text-primary rounded-md group-hover:shadow-lg transition duration-300"
+                    class="mx-8 flex rounded-md py-2 px-2 transition duration-300 group-hover:text-primary group-hover:shadow-lg dark:text-white dark:group-hover:text-dark dark:group-hover:shadow-white/60"
                     ><svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -89,7 +130,7 @@
                 <li class="group">
                   <a
                     href="#project"
-                    class="py-2 px-2 mx-8 flex group-hover:text-primary rounded-md group-hover:shadow-lg transition duration-300"
+                    class="mx-8 flex rounded-md py-2 px-2 transition duration-300 group-hover:text-primary group-hover:shadow-lg dark:text-white dark:group-hover:text-dark dark:group-hover:shadow-white/60"
                     ><svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -110,7 +151,7 @@
                 <li class="group">
                   <a
                     href="#blog"
-                    class="py-2 px-2 mx-8 flex group-hover:text-primary rounded-md group-hover:shadow-lg transition duration-300"
+                    class="mx-8 flex rounded-md py-2 px-2 transition duration-300 group-hover:text-primary group-hover:shadow-lg dark:text-white dark:group-hover:text-dark dark:group-hover:shadow-white/60"
                     ><svg
                       width="20"
                       class="mr-2"
@@ -131,7 +172,7 @@
                 <li class="group">
                   <a
                     href="#contact"
-                    class="py-2 px-2 mx-8 flex group-hover:text-primary rounded-md group-hover:shadow-lg transition duration-300"
+                    class="mx-8 flex rounded-md py-2 px-2 transition duration-300 group-hover:text-primary group-hover:shadow-lg dark:text-white dark:group-hover:text-dark dark:group-hover:shadow-white/60"
                     ><svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -160,37 +201,41 @@
     <section id="home" class="pt-36">
       <div class="container">
         <div
-          class="flex text-center lg:text-left justify-center items-center flex-wrap"
+          class="flex flex-wrap items-center justify-center text-center lg:text-left"
         >
           <div class="w-full px-4 lg:w-1/2">
             <img
               src="dist/img/pfp.png"
               alt="PFP"
-              class="rounded-full w-60 mx-auto"
+              class="mx-auto w-60 rounded-full"
             />
           </div>
-          <div class="w-full px-4 mt-10 lg:w-1/2">
-            <h4 class="uppercase">Hi There! I'm</h4>
-            <h1 class="uppercase text-4xl mt-5">
-              <span class="text-primary">Harry</span> Ricardo
+          <div class="mt-10 w-full px-4 lg:w-1/2">
+            <h4 class="uppercase dark:text-white">Hi There! I'm</h4>
+            <h1 class="mt-5 text-4xl uppercase dark:text-white">
+              <span class="text-primary dark:text-dark">Harry</span> Ricardo
             </h1>
-            <h5 class="text-xl font-medium text-secondary mt-5 mb-10">
+            <h5
+              class="mt-5 mb-10 text-xl font-medium text-secondary dark:text-gray-300"
+            >
               A Junior
-              <span class="text-primary">Front-End Web Developer</span>
+              <span class="text-primary dark:text-dark"
+                >Front-End Web Developer</span
+              >
               that love to create stuff and bring it to live.
             </h5>
             <!-- Buttons -->
             <div class="flex justify-center lg:justify-start">
               <a
                 href="#"
-                class="bg-primary px-8 py-3 rounded-full mr-5 text-white tracking-widest hover:shadow-xl transition 500ms"
+                class="mr-5 rounded-full bg-primary px-8 py-3 tracking-widest text-white transition hover:shadow-xl dark:bg-dark dark:shadow-white/30 dark:text-gray-700"
                 >Resume</a
               >
               <!-- LinkedIn -->
               <a
                 href="https://www.linkedin.com/in/harry-ricardo/"
                 target="_blank"
-                class="w-10 h-10 mr-3 rounded-md flex text-primary shadow-lg justify-center hover:bg-primary hover:text-white transition 500ms"
+                class="500ms mr-3 flex h-10 w-10 justify-center rounded-md text-primary shadow-lg transition hover:bg-primary hover:text-white dark:shadow-white/30 dark:text-dark dark:hover:bg-dark dark:hover:text-gray-700"
                 ><svg
                   class="fill-current"
                   width="25"
@@ -207,7 +252,7 @@
               <a
                 href="https://github.com/PastGH"
                 target="_blank"
-                class="w-10 h-10 mr-3 rounded-md flex text-primary shadow-lg justify-center hover:bg-primary hover:text-white transition 500ms"
+                class="500ms mr-3 flex h-10 w-10 justify-center rounded-md text-primary shadow-lg transition hover:bg-primary hover:text-white dark:text-dark dark:hover:bg-dark dark:hover:text-gray-700 dark:shadow-white/30"
                 ><svg
                   class="fill-current"
                   width="25"
@@ -224,7 +269,7 @@
               <a
                 href="https://www.instagram.com/ry._rc/"
                 target="_blank"
-                class="w-10 h-10 mr-3 rounded-md flex text-primary shadow-lg justify-center hover:bg-primary hover:text-white transition 500ms"
+                class="500ms mr-3 flex h-10 w-10 justify-center rounded-md text-primary shadow-lg transition hover:bg-primary hover:text-white dark:text-dark dark:hover:bg-dark dark:hover:text-gray-700 dark:shadow-white/30"
                 ><svg
                   class="fill-current"
                   width="25"
@@ -241,7 +286,7 @@
               <a
                 href="https://api.whatsapp.com/send?phone=6287879743209&text=I'd%20like%20to%20discuss%20a%20project%20with%20you."
                 target="_blank"
-                class="w-10 h-10 mr-3 rounded-md flex text-primary shadow-lg justify-center hover:bg-primary hover:text-white transition 500ms"
+                class="500ms mr-3 flex h-10 w-10 justify-center rounded-md text-primary shadow-lg transition hover:bg-primary hover:text-white dark:text-dark dark:hover:bg-dark dark:hover:text-gray-700 dark:shadow-white/30"
                 ><svg
                   class="fill-current"
                   width="25"
@@ -264,22 +309,24 @@
     <section id="about" class="pt-36">
       <div class="container">
         <div class="flex flex-wrap">
-          <div class="w-full px-4 mb-10">
-            <h6>some info</h6>
-            <h4 class="uppercase text-3xl">About me</h4>
+          <div class="mb-10 w-full px-4">
+            <h6 class="dark:text-white">some info</h6>
+            <h4 class="text-3xl uppercase dark:text-white">About me</h4>
           </div>
           <div
-            class="w-full text-lg px-5 md:px-10 md:bg-white md:py-10 md:rounded-[2rem]"
+            class="w-full px-5 text-lg md:rounded-[2rem] md:bg-white dark:md:bg-gray-800 md:px-10 md:py-10"
           >
-            <p>
+            <p class="dark:text-white">
               I'm a self taught
-              <span class="text-primary">Front-end Web Developer</span> that
-              started to learn how to code on the end of 2021. It's not easy,
-              but I love challenges and the thought of me creating something to
-              live and let people see itself hyped me. Currently, I'm based in
-              Indonesia and I am still a highschool student. Coding is just a
-              hobby for now, but I do wish that this hobby will turn into my
-              fulltime job in the future.
+              <span class="text-primary dark:text-dark"
+                >Front-end Web Developer</span
+              >
+              that started to learn how to code on the end of 2021. It's not
+              easy, but I love challenges and the thought of me creating
+              something to live and let people see itself hyped me. Currently,
+              I'm based in Indonesia and I am still a highschool student. Coding
+              is just a hobby for now, but I do wish that this hobby will turn
+              into my fulltime job in the future.
             </p>
           </div>
         </div>
@@ -290,14 +337,14 @@
     <section id="project" class="pt-36">
       <div class="container">
         <div class="flex flex-wrap">
-          <div class="w-full px-4 mb-10">
-            <h6>Take a look at my</h6>
-            <h4 class="uppercase text-3xl">Projects</h4>
+          <div class="mb-10 w-full px-4">
+            <h6 class="dark:text-white">Take a look at my</h6>
+            <h4 class="text-3xl uppercase dark:text-white">Projects</h4>
           </div>
-          <div class="w-full px-4 flex flex-wrap">
-            <div class="mb-12 pr-4 py-4 lg:w-1/2">
+          <div class="flex w-full flex-wrap px-4">
+            <div class="mb-12 py-4 pr-4 lg:w-1/2">
               <div
-                class="rounded-md shadow-md overflow-hidden transition duration-500 hover:shadow-xl hover:scale-105"
+                class="overflow-hidden rounded-md shadow-md transition duration-500 hover:scale-105 hover:shadow-xl dark:hover:shadow-white/20 dark:shadow-white/10"
               >
                 <a href="https://startling-creponne-3a621e.netlify.app/"
                   ><img
@@ -306,16 +353,20 @@
                     width="w-full"
                 /></a>
               </div>
-              <h3 class="font-semibold text-xl text-dark mt-5 mb-3">
+              <h3
+                class="text-black dark:text-white mt-5 mb-3 text-xl font-semibold"
+              >
                 NFT Preview Card Component
               </h3>
-              <p class="font-medium text-base text-secondary">
+              <p
+                class="text-base font-medium text-secondary dark:text-gray-300"
+              >
                 A challenge by Frontend Mentor.
               </p>
             </div>
-            <div class="mb-12 pr-4 py-4 lg:w-1/2">
+            <div class="mb-12 py-4 pr-4 lg:w-1/2">
               <div
-                class="rounded-md shadow-md overflow-hidden transition duration-500 hover:shadow-xl hover:scale-105"
+                class="overflow-hidden rounded-md shadow-md transition duration-500 hover:scale-105 hover:shadow-xl dark:hover:shadow-white/20 dark:shadow-white/10"
               >
                 <a href="https://brave-fermat-365074.netlify.app/"
                   ><img
@@ -324,16 +375,18 @@
                     width="w-full"
                 /></a>
               </div>
-              <h3 class="font-semibold text-xl text-dark mt-5 mb-3">
+              <h3
+                class="text-black dark:text-white mt-5 mb-3 text-xl font-semibold"
+              >
                 QR Code Component
               </h3>
-              <p class="font-medium text-base text-secondary">
+              <p class="text-base font-medium text-secondar dark:text-gray-300">
                 A challenge by Frontend Mentor.
               </p>
             </div>
-            <div class="mb-12 pr-4 py-4 lg:w-1/2">
+            <div class="mb-12 py-4 pr-4 lg:w-1/2">
               <div
-                class="rounded-md shadow-md overflow-hidden transition duration-500 hover:shadow-xl hover:scale-105"
+                class="overflow-hidden rounded-md shadow-md transition duration-500 hover:scale-105 hover:shadow-xl dark:hover:shadow-white/20 dark:shadow-white/10"
               >
                 <a href="https://euphonious-banoffee-345c69.netlify.app/"
                   ><img
@@ -342,16 +395,20 @@
                     width="w-full"
                 /></a>
               </div>
-              <h3 class="font-semibold text-xl text-dark mt-5 mb-3">
+              <h3
+                class="text-black dark:text-white mt-5 mb-3 text-xl font-semibold"
+              >
                 Order Summary Component
               </h3>
-              <p class="font-medium text-base text-secondary">
+              <p
+                class="text-base font-medium text-secondary dark:text-gray-300"
+              >
                 A challenge by Frontend Mentor.
               </p>
             </div>
-            <div class="mb-12 pr-4 py-4 lg:w-1/2">
+            <div class="mb-12 py-4 pr-4 lg:w-1/2">
               <div
-                class="rounded-md shadow-md overflow-hidden transition duration-500 hover:shadow-xl hover:scale-105"
+                class="overflow-hidden rounded-md shadow-md transition duration-500 hover:scale-105 hover:shadow-xl dark:hover:shadow-white/20 dark:shadow-white/10"
               >
                 <a href="https://harryrc01.netlify.app"
                   ><img
@@ -360,10 +417,14 @@
                     width="w-full"
                 /></a>
               </div>
-              <h3 class="font-semibold text-xl text-dark mt-5 mb-3">
+              <h3
+                class="text-black dark:text-white mt-5 mb-3 text-xl font-semibold"
+              >
                 Portfolio Bootstrap 5
               </h3>
-              <p class="font-medium text-base text-secondary">
+              <p
+                class="text-base font-medium text-secondary dark:text-gray-300"
+              >
                 This is my first Portfolio that I made with Bootstrap 5.
               </p>
             </div>
@@ -376,30 +437,32 @@
     <section id="blog" class="pt-36">
       <div class="container">
         <div class="flex flex-wrap">
-          <div class="w-full px-4 mb-10">
-            <h6>also check out my</h6>
-            <h4 class="uppercase text-3xl">Blogs</h4>
+          <div class="mb-10 w-full px-4">
+            <h6 class="dark:text-white">also check out my</h6>
+            <h4 class="text-3xl uppercase dark:text-white">Blogs</h4>
           </div>
           <div class="flex flex-wrap">
-            <div class="w-full px-4 relative lg:w-1/2 xl:1/3">
-              <div class="bg-white rounded-lg overflow-hidden shadow-lg mb-10">
+            <div class="xl:1/3 relative w-full px-4 lg:w-1/2">
+              <div
+                class="mb-10 overflow-hidden rounded-lg bg-white shadow-lg dark:shadow-white/30"
+              >
                 <img
                   src="dist/img/projects/Random-image.jpg"
                   alt=""
                   class="w-full"
                 />
-                <div class="py-8 px-6 bg-primary">
+                <div class="bg-primary dark:bg-dark py-8 px-6">
                   <h3>
                     <a
                       href="#"
-                      class="block font-semibold text-2xl text-white truncate"
+                      class="block truncate text-2xl font-semibold text-white"
                       >My Webdev Journey</a
                     >
                   </h3>
                   <h5 class="text-xs text-white">by Harry</h5>
                 </div>
-                <div class="py-8 px-6 relative">
-                  <p class="text-secondary text-sm line-clamp-2">
+                <div class="relative py-8 px-6">
+                  <p class="text-sm text-secondary line-clamp-2">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Quod praesentium, repudiandae numquam dolor doloremque
                     quidem beatae quas necessitatibus aut sed asperiores minus
@@ -409,29 +472,31 @@
               </div>
               <a
                 href="#"
-                class="bg-primary hover:bg-blue-600 transition duration-300 text-white font-bold py-2 px-4 rounded-md absolute right-0 bottom-6 shadow-lg"
+                class="absolute right-0 bottom-6 rounded-md bg-primary py-2 px-4 font-bold text-white shadow-lg transition duration-300 hover:bg-dark dark:bg-dark dark:hover:bg-primary dark:shadow-white/30"
                 >Continue Reading</a
               >
             </div>
-            <div class="w-full px-4 relative lg:w-1/2 xl:1/3">
-              <div class="bg-white rounded-lg overflow-hidden shadow-lg mb-10">
+            <div class="xl:1/3 relative w-full px-4 lg:w-1/2">
+              <div
+                class="mb-10 overflow-hidden rounded-lg bg-white shadow-lg dark:shadow-white/30"
+              >
                 <img
                   src="dist/img/projects/Random-image.jpg"
                   alt=""
                   class="w-full"
                 />
-                <div class="py-8 px-6 bg-primary">
+                <div class="bg-primary py-8 px-6 dark:bg-dark">
                   <h3>
                     <a
                       href="#"
-                      class="block font-semibold text-2xl text-white truncate"
+                      class="block truncate text-2xl font-semibold text-white"
                       >Article 2</a
                     >
                   </h3>
                   <h5 class="text-xs text-white">by Harry</h5>
                 </div>
                 <div class="py-8 px-6">
-                  <p class="text-secondary text-sm line-clamp-2">
+                  <p class="text-sm text-secondary line-clamp-2">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Repellat labore corporis necessitatibus molestiae reiciendis
                     cumque doloribus ea possimus repudiandae veritatis!
@@ -440,29 +505,31 @@
               </div>
               <a
                 href="#"
-                class="bg-primary hover:bg-blue-600 transition duration-300 text-white font-bold py-2 px-4 rounded-md absolute right-0 bottom-6 shadow-lg"
+                class="absolute right-0 bottom-6 rounded-md bg-primary py-2 px-4 font-bold text-white shadow-lg transition duration-300 hover:bg-dark dark:bg-dark dark:hover:bg-primary dark:shadow-white/30"
                 >Continue Reading</a
               >
             </div>
-            <div class="w-full px-4 relative lg:w-1/2 xl:1/3">
-              <div class="bg-white rounded-lg overflow-hidden shadow-lg mb-10">
+            <div class="xl:1/3 relative w-full px-4 lg:w-1/2">
+              <div
+                class="mb-10 overflow-hidden rounded-lg bg-white shadow-lg dark:shadow-white/30"
+              >
                 <img
                   src="dist/img/projects/Random-image.jpg"
                   alt=""
                   class="w-full"
                 />
-                <div class="py-8 px-6 bg-primary">
+                <div class="bg-primary py-8 px-6 dark:bg-dark">
                   <h3>
                     <a
                       href="#"
-                      class="block font-semibold text-2xl text-white truncate"
+                      class="block truncate text-2xl font-semibold text-white"
                       >Article 3</a
                     >
                   </h3>
                   <h5 class="text-xs text-white">by Harry</h5>
                 </div>
                 <div class="py-8 px-6">
-                  <p class="text-secondary text-sm line-clamp-2">
+                  <p class="text-sm text-secondary line-clamp-2">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                     Quidem a accusamus vel? Magnam minus minima saepe rerum
                     dignissimos consequatur pariatur?
@@ -471,29 +538,31 @@
               </div>
               <a
                 href="#"
-                class="bg-primary hover:bg-blue-600 transition duration-300 text-white font-bold py-2 px-4 rounded-md absolute right-0 bottom-6 shadow-lg"
+                class="absolute right-0 bottom-6 rounded-md bg-primary py-2 px-4 font-bold text-white shadow-lg transition duration-300 hover:bg-dark dark:bg-dark dark:hover:bg-primary dark:shadow-white/30"
                 >Continue Reading</a
               >
             </div>
-            <div class="w-full px-4 relative lg:w-1/2 xl:1/3">
-              <div class="bg-white rounded-lg overflow-hidden shadow-lg mb-10">
+            <div class="xl:1/3 relative w-full px-4 lg:w-1/2">
+              <div
+                class="mb-10 overflow-hidden rounded-lg bg-white shadow-lg dark:shadow-white/30"
+              >
                 <img
                   src="dist/img/projects/Random-image.jpg"
                   alt=""
                   class="w-full"
                 />
-                <div class="py-8 px-6 bg-primary">
+                <div class="bg-primary py-8 px-6 dark:bg-dark">
                   <h3>
                     <a
                       href="#"
-                      class="block font-semibold text-2xl text-white truncate"
+                      class="block truncate text-2xl font-semibold text-white"
                       >Article 4</a
                     >
                   </h3>
                   <h5 class="text-xs text-white">by Harry</h5>
                 </div>
                 <div class="py-8 px-6">
-                  <p class="text-secondary text-sm line-clamp-2">
+                  <p class="text-sm text-secondary line-clamp-2">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                     Nemo nesciunt veritatis rerum minima quas repudiandae
                     repellat soluta totam blanditiis possimus.
@@ -502,7 +571,7 @@
               </div>
               <a
                 href="#"
-                class="bg-primary hover:bg-blue-600 transition duration-300 text-white font-bold py-2 px-4 rounded-md absolute right-0 bottom-6 shadow-lg"
+                class="absolute right-0 bottom-6 rounded-md bg-primary py-2 px-4 font-bold text-white shadow-lg transition duration-300 hover:bg-dark dark:bg-dark dark:hover:bg-primary dark:shadow-white/30"
                 >Continue Reading</a
               >
             </div>
@@ -512,12 +581,12 @@
     </section>
     <!-- Blog Section End -->
     <!-- Contact Section Start -->
-    <section id="contact" class="pt-36 mb-12">
+    <section id="contact" class="mb-12 pt-36">
       <div class="container">
         <div class="flex flex-wrap">
-          <div class="w-full px-4 mb-10">
-            <h6>want to have a chat? here's my</h6>
-            <h4 class="uppercase text-3xl">Contact</h4>
+          <div class="mb-10 w-full px-4">
+            <h6 class="dark:text-white">want to have a chat? here's my</h6>
+            <h4 class="text-3xl uppercase dark:text-white">Contact</h4>
           </div>
           <div class="w-full">
             <form
@@ -525,10 +594,10 @@
               method="POST"
               class="flex flex-wrap"
             >
-              <div class="w-full px-4 mb-8 lg:w-1/2">
+              <div class="mb-8 w-full px-4 lg:w-1/2">
                 <label
                   for="name"
-                  class="text-base font-bold text-primary uppercase"
+                  class="text-base font-bold uppercase text-primary dark:text-dark"
                   >Name</label
                 >
                 <input
@@ -537,13 +606,13 @@
                   id="name"
                   name="name"
                   required
-                  class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+                  class="text-black w-full rounded-md bg-slate-200 p-3 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:focus:border-dark dark:focus:ring-dark"
                 />
               </div>
-              <div class="w-full px-4 mb-8 lg:w-1/2">
+              <div class="mb-8 w-full px-4 lg:w-1/2">
                 <label
                   for="email"
-                  class="text-base font-bold text-primary uppercase"
+                  class="text-base font-bold uppercase text-primary dark:text-dark"
                   >Email</label
                 >
                 <input
@@ -552,14 +621,14 @@
                   id="email"
                   name="email"
                   required
-                  class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+                  class="text-black w-full rounded-md bg-slate-200 p-3 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:focus:border-dark dark:focus:ring-dark"
                 />
               </div>
               <input type="hidden" name="_subject" value="New Email!" />
-              <div class="w-full px-4 mb-8">
+              <div class="mb-8 w-full px-4">
                 <label
                   for="message"
-                  class="text-base font-bold text-primary uppercase"
+                  class="text-base font-bold uppercase text-primary dark:text-dark"
                   >Message</label
                 >
                 <textarea
@@ -568,13 +637,13 @@
                   id="message"
                   name="message"
                   required
-                  class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-32"
+                  class="text-black h-32 w-full rounded-md bg-slate-200 p-3 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:focus:border-dark dark:focus:ring-dark"
                 ></textarea>
               </div>
               <div class="w-full px-4">
                 <button
                   type="submit"
-                  class="text-base font-semibold text-white bg-primary py-2 px-8 rounded-md w-full hover:shadow-xl hover:bg-blue-600 transition duration-500"
+                  class="w-full rounded-md bg-primary py-2 px-8 text-base font-semibold text-white transition duration-500 hover:bg-dark hover:shadow-xl dark:bg-dark dark:hover:bg-primary dark:hover:shadow-white/20"
                 >
                   Send
                 </button>
@@ -591,11 +660,11 @@
     </section>
     <!-- Contact Section End -->
     <!-- Footer Section Start -->
-    <footer class="bg-white">
+    <footer class="bg-white dark:bg-gray-800">
       <div class="container">
         <div class="flex flex-wrap">
-          <div class="w-full px-4 py-4 flex justify-center items-center">
-            <h1 class="font-medium">© Harry Ricardo 2022</h1>
+          <div class="flex w-full items-center justify-center px-4 py-4">
+            <h1 class="font-medium dark:text-white">© Harry Ricardo 2022</h1>
           </div>
         </div>
       </div>
@@ -603,5 +672,6 @@
     <!-- Footer Section End -->
 
     <script src="dist/js/script.js"></script>
+    <script src="../path/to/flowbite/dist/flowbite.js"></script>
   </body>
 </html>

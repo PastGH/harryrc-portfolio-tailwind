@@ -1,4 +1,5 @@
 module.exports = {
+  darkMode: "class",
   content: ["index.html", "./pages/thanks.html"],
   theme: {
     container: {
@@ -9,8 +10,9 @@ module.exports = {
       colors: {
         primary: "#60A5FA",
         secondary: "#64748B",
+        dark: "#2563eb",
       },
     },
   },
-  plugins: [require("@tailwindcss/line-clamp")],
+  plugins: [require("@tailwindcss/line-clamp"), require("flowbite/plugin")],
 };
