@@ -12,9 +12,9 @@ module.exports = {
         "dark-profile": "url(/dist/img/pfp_dark.png)",
       }),
       colors: {
-        primary: "#60A5FA",
+        primary: "#086AE2",
         secondary: "#64748B",
-        dark: "#2563eb",
+        dark: "#8BAEF8",
       },
     },
   },
