@@ -1317,6 +1317,11 @@ h6:before {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.hover\:text-dark_secondary:hover {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+
 .hover\:shadow-xl:hover {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
@@ -1376,6 +1381,11 @@ h6:before {
   background-color: rgb(139 174 248 / var(--tw-bg-opacity));
 }
 
+.dark .dark\:bg-primary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(8 106 226 / var(--tw-bg-opacity));
+}
+
 .dark .dark\:bg-gray-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
@@ -1401,6 +1411,16 @@ h6:before {
 }
 
 .dark .dark\:text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+
+.dark .dark\:text-secondary {
+  --tw-text-opacity: 1;
+  color: rgb(100 116 139 / var(--tw-text-opacity));
+}
+
+.dark .dark\:text-dark_secondary {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
 }
@@ -1443,6 +1463,15 @@ h6:before {
 .dark .dark\:hover\:text-gray-700:hover {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+
+.dark .dark\:hover\:text-dark_secondary\/90:hover {
+  color: rgb(55 65 81 / 0.9);
+}
+
+.dark .dark\:hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .dark .dark\:hover\:shadow-white\/20:hover {
