@@ -1,6 +1,6 @@
 module.exports = {
   darkMode: ["class", "media"],
-  content: ["index.html", "thanks.html"],
+  content: ["index.html", "thanks.html", "./blogs/webdev-journey.html"],
   theme: {
     container: {
       center: true,
